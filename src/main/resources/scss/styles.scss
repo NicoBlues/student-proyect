@@ -1,0 +1,13 @@
+@import 'fonts';
+@import 'animation';
+@import 'media-styles';
+
+
+
+/*Others Styles*/
+.disabled-link {
+  pointer-events: none; /* Deshabilita eventos de clic */
+  color: gray; /* Cambia el color del texto a gris */
+  text-decoration: none; /* Elimina cualquier subrayado del enlace */
+  cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+}

@@ -1,0 +1,20 @@
+@media (min-width: 200px) and (max-width: 333px) {
+  .xs-screen-right-top-menu {
+  	position: absolute;
+   right: 2px;
+   top:1.15rem;
+  }
+   .xs-screen-right-top-button {
+  	position: absolute;
+   right: 28px;
+   top:1.15rem;
+  }
+ .xs-screen-margin-logo {
+ 	margin-top: 4px;
+ 	margin-right: -2px;
+ }
+ .normal-screen-text {
+	font-size: 1.3rem;
+	line-height: 1.5rem; 
+ }
+}

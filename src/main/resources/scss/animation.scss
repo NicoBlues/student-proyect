@@ -1,0 +1,72 @@
+/* Clases de animación para entrada desde abajo y salida hacia abajo */
+.slide-in-up {
+  animation-name: slideInUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.slide-out-down {
+  animation-name: slideOutDown;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+/* Definición de las animaciones */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes para salida hacia la derecha en pantallas más pequeñas */
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+
+
+/* Media query para aplicar estilos diferentes en pantallas más pequeñas (por ejemplo, tabletas) */
+@media (max-width: 768px) {
+  /* Clases de animación para entrada desde la derecha y salida hacia la derecha en pantallas más pequeñas */
+  .slide-in-up {
+    animation-name: slideInRight;
+  }
+
+  .slide-out-down {
+    animation-name: slideOutRight;
+  }
+}

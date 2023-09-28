@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<title>Students</title>   
+</head>
+<body class="dark dark:bg-gray-950">
+	<header th:replace="~{fragments/header :: header}"></header>
+	<div class="overflow-x-auto shadow-lg sm:rounded-lg mt-32 mx-6 md:p-20">
+		<div
+			class="justify-left ml-4 uppercase tracking-wide font-semibold text-2xl dark:text-white underline">Students
+			Table</div>
+		<div class="flex justify-end mb-4">
+			<a th:href="@{students/new-student}">
+				<button
+					class="inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+					<span
+						class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+						Create Student </span>
+				</button>
+			</a>
+		</div>
+		<form>
+			<label for="default-search"
+				class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+			<div class="relative">
+				<div
+					class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+					<svg class="w-4 h-4 text-gray-500 dark:text-gray-400"
+						aria-hidden="true" stroke-width="4"
+						xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round"
+							stroke-linejoin="round" stroke-width="4"
+							d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+				</div>
+				<input type="search" id="student-search"
+					class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+					placeholder="Search Students..." required>
+			</div>
+		</form>
+		<table
+			class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+			<thead
+				class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+				<tr>
+					<th scope="col" class="px-6 py-3">Name</th>
+					<th scope="col" class="px-4 py-3">Last-Name</th>
+					<th scope="col" class="px-6 py-3">Email</th>
+					<th scope="col" class="px-4 py-3">Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- se asigna el objeto students a la variable students -->
+				<tr th:each="students: ${students}"
+					class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+					<th th:text="${students.name}" scope="row"
+						class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+					</th>
+					<td th:text="${students.lastName}" class="px-4 py-4"></td>
+					<td th:text="${students.email}" class="px-6 py-4"></td>
+					<td class="px-6 py-4 space-x-1 whitespace-nowrap">
+					<a th:href="@{/students/edit/{id}(id=${students.id})}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+					<i class="fas fa-user-pen" style="color: #0091ff;"></i>
+					</a>
+					<a th:href="@{/students/delete/{id}(id=${students.id})}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+					<i class="fas fa-trash-can" style="color: #ff0000;"></i>
+					</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="container mx-auto my-10 px-4">
+		<div
+			class="flex items-center uppercase tracking-wide font-semibold text-2xl dark:text-white mb-8 underline">Students
+			CARDS</div>
+		<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-6">
+		
+			<!-- Itera sobre la lista de estudiantes -->
+			
+<div th:each="students: ${students}"  class="student-card w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="flex flex-col items-center pb-10">
+        <img class="w-24 h-24 my-3 rounded-full shadow-lg" th:src="${students.photoUrl}" alt="Student image"/>
+        <h5 th:text="${students.name}" class="student-name-card mb-1 text-xl font-medium text-gray-900 dark:text-white"></h5>
+        <span th:text="${students.lastName}" class="student-last-name-card text-sm text-gray-500 dark:text-gray-400"></span>
+        <span th:text="${students.email}" class="student-email-card text-sm text-gray-500 dark:text-gray-400"></span>
+        <div class="mt-2 space-x-1">
+        <a th:href="@{/students/edit/{id}(id=${students.id})}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+					<i class="fas fa-user-pen" style="color: #0091ff;"></i>
+					</a>
+					<a th:href="@{/students/delete/{id}(id=${students.id})}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+					<i class="fas fa-trash-can" style="color: #ff0000;"></i>
+					</a>
+        </div>
+        </div>
+</div>
+
+		</div>
+	</div>
+	
+<script th:src="@{/js/functions.js}"></script>
+	<!-- Script animation-js -->
+	<script src="js/animation-js.js"></script>
+	<!-- Link Al Script FlowBite -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+</body>
+</html>

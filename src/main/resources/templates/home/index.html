@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="~{fragments/head :: head}"></head>
+<title>Home | Student</title>
+</head>
+<body class="dark dark:bg-gray-950">
+
+	<!--/* HEADER */-->
+	<header th:replace="~{fragments/header :: header}"> </header>
+	<!-- /* CARROUSEL */ -->
+	<div th:replace="~{fragments/carrousel :: carrousel}"></div>
+	<!-- /* CARD SECTION */ -->
+	<section th:replace="~{fragments/body-section-1 :: body-section-1}">
+	</section>
+	<!-- /* ACCORDION */ -->
+	<div th:replace="~{fragments/accordion :: accordion}"></div>
+	<!-- /* PRE-FOOTER-SECTION */ -->
+	<section
+		th:replace="~{fragments/pre-footer-section :: pre-footer-section}">
+	</section>
+	<!-- /*TOAST SECTION*/ -->
+	<div th:replace="~{fragments/hello-toast :: hello-toast}"></div>
+	<!-- /* FOOTER */ -->
+	<footer th:replace="~{fragments/footer :: footer}"> </footer>
+	<!-- Link Al Script FlowBite -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js">
+		
+	</script>
+	<!-- Script animation-js -->
+	<script src="js/animation-js.js"></script>
+</body>
+</html>
